@@ -1,10 +1,10 @@
 <%-include("Header.ejs")-%>
     <div id="header" class="cont text-center">
-        <!-- <h1 classs="my-4">Expense Tracker</h1> -->
+        <h1 classs="my-4">Expense Tracker</h1>
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="filterDropdown" data-toggle="dropdown"
+            <button class="btn btn-light dropdown-toggle" type="button" id="filterDropdown" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                Filter Expense
+                Filter
             </button>
             <div class="dropdown-menu" aria-labelledby="filterDropdown">
                 <a class="dropdown-item" href="/category/">All Expenses</a>
@@ -32,9 +32,9 @@
                             </h2>
                         </div>
                         <div class="expense_amount">
-                            <p>
+                            <h3>
                                 $ <%= expense_object.amount %>
-                            </p>
+                            </h3>
                         </div>
 
                         <a href="/delete/<%= expense_object._id %>"><i class="fa-solid fa-trash"></i></a>

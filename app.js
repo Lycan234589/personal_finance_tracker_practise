@@ -103,7 +103,7 @@ const isLoggedIn = (req, res, next) => {
 }
 
 //===rotues
-app.get("/", (req, res) => {
+app.get("/", isLoggedIn, (req, res) => {
     Expense.find({})
         .then((foundExpenses) => {
             console.log(foundExpenses);
@@ -167,8 +167,9 @@ app.post("/login", (req, res) => {
 
 
 app.get("/logout", (req, res) => {
-    res.send("logged out");
-
+    req.session.destroy(() => {
+        res.redirect("/login")
+    })
 })
 
 app.get("/signup", (req, res) => {
@@ -246,7 +247,7 @@ app.post("/addExpense", (req, res) => {
 })
 
 // category route
-app.get("/category/:category?", (req, res) => {
+app.get("/category/:category?", isLoggedIn, (req, res) => {
     // text written after "category/" will be accessed using req.params.category and then stored in selected_category 
     const selected_category = req.params.category
     // if the user enters a category then filter will be an object {category : selected_category}, if he doesn't it will be 
