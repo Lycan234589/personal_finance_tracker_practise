@@ -1,23 +1,25 @@
 <%-include("Header.ejs")-%>
-    <div class="cont text-center">
+    <div id="header" class="cont text-center">
         <!-- <h1 classs="my-4">Expense Tracker</h1> -->
-        <div class="btn-group" role="group" aria-label="Filter Expense">
-            <a href="/category/" class="btn btn-secondary">All Expenses</a>
-            <a href="/category/food" class="btn btn-secondary">Food</a>
-            <a href="/category/utilities" class="btn btn-secondary">Utilities</a>
-            <a href="/category/living" class="btn btn-secondary">Living</a>
-            <a href="/category/shopping" class="btn btn-secondary">Shopping</a>
-            <a href="/category/transport" class="btn btn-secondary">Transport</a>
-            <a href="/category/entertainment" class="btn btn-secondary">Entertainment</a>
-            <a href="/category/others" class="btn btn-secondary">Others</a>
-
-
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="filterDropdown" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Filter Expense
+            </button>
+            <div class="dropdown-menu" aria-labelledby="filterDropdown">
+                <a class="dropdown-item" href="/category/">All Expenses</a>
+                <a class="dropdown-item" href="/category/food">Food</a>
+                <a class="dropdown-item" href="/category/utilities">Utilities</a>
+                <a class="dropdown-item" href="/category/living">Living</a>
+                <a class="dropdown-item" href="/category/shopping">Shopping</a>
+                <a class="dropdown-item" href="/category/transport">Transport</a>
+                <a class="dropdown-item" href="/category/entertainment">Entertainment</a>
+                <a class="dropdown-item" href="/category/others">Others</a>
+            </div>
         </div>
-        <!-- < href="/addExpense" class="btn btn-block btn-light">Add Expense</> -->
     </div>
-    <!-- if data is an array -->
 
-    <div class="expenses">
+    <div class="expenses" id="expenses">
         <div class="cont">
 
             <% if(typeof data==typeof []){%>
